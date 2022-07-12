@@ -1,5 +1,5 @@
-/* Phase 1: LockedMe Prototype Application
- * 
+/* 12/07/2022
+ * Phase 1: LockedMe Prototype Application
  */
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ public class Main{
 		
 		ViewOptions vo = new ViewOptions();
 		vo.allOptions();
-
+		
 	}
 
 }

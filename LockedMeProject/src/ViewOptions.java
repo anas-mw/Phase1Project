@@ -9,7 +9,7 @@ public class ViewOptions {
 
 	public void allOptions() throws IOException {
 		System.out.println("Main Menu\n");
-		
+
 		System.out.println("Option A: List All Files\n");
 		System.out.println("Option B: ");
 		System.out.println("Add a file to existing directory list");
@@ -58,16 +58,13 @@ public class ViewOptions {
 
 		System.out.println();
 		System.out.println("List of all files in directory: " + folder.getName());
-		
 
 		for (int i = 0; i < contents.length; i++) {
 			System.out.println(contents[i]);
-		} 
-		
+		}
+
 		System.out.println();
 		allOptions();
-		
-
 
 //		System.out.println();
 //		if (!folder.exists()) { // Checking if it exists or not
@@ -79,7 +76,7 @@ public class ViewOptions {
 
 	}
 
-	void optionB() throws IOException{
+	void optionB() throws IOException {
 		System.out.println("B1. Add a file to existing directory");
 		System.out.println("B2. Delete a specific file in current directory:");
 		System.out.println("B3. Search for a file");
@@ -98,16 +95,34 @@ public class ViewOptions {
 				allOptions();
 
 			} else {
-				System.out.println("File name already exists, change file name and try again \n");
+				System.out.println("File already exists, change file name and try again \n");
 				allOptions();
 			}
 		}
 		if (userInput.equalsIgnoreCase("B2")) {
-			System.out.println("Enter the file to be deleted: ");
-			userInput = sc.next();	
+			
+			File deleteFile = new File("h://My Documents//LockedMeFolderExample//example4.txt"); // Path of file to be deleted
+																					
+			System.out.println("File to be deleted: " + deleteFile.getName()); // Display file name to user
+			
+			if(deleteFile.delete()) {
+				try {
+					System.out.println("Deleting...");
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println(deleteFile.getName() + " deleted successfully! \n");
+				allOptions();
+			} else {
+				System.out.println("File does not exist, try again! \n");
+				allOptions();
+			}
+
 		}
-		
-		if(userInput.equalsIgnoreCase("B3")){
+
+		if (userInput.equalsIgnoreCase("B3")) {
 			System.out.println("Searching for file...");
 		}
 

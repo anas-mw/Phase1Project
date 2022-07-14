@@ -12,9 +12,9 @@ public class ViewOptions {
 
 		System.out.println("Option A: List All Files\n");
 		System.out.println("Option B: ");
-		System.out.println("Add a file to existing directory list");
-		System.out.println("Delete a user specified file from the existing directory list");
-		System.out.println("Search for a specific file: ");
+		System.out.println("Add File");
+		System.out.println("Delete File");
+		System.out.println("Search File ");
 		System.out.println("Main Menu");
 		System.out.println();
 		System.out.println("Option C: Close Application");
@@ -80,7 +80,7 @@ public class ViewOptions {
 		System.out.println("B1. Add a file to existing directory");
 		System.out.println("B2. Delete a specific file in current directory:");
 		System.out.println("B3. Search for a file");
-		System.out.println("B4. Main Menu");
+		System.out.println("B4. Main Menu \n");
 		System.out.println("Select an option: ");
 		userInput = sc.next();
 
@@ -100,12 +100,13 @@ public class ViewOptions {
 			}
 		}
 		if (userInput.equalsIgnoreCase("B2")) {
-			
-			File deleteFile = new File("h://My Documents//LockedMeFolderExample//example4.txt"); // Path of file to be deleted
-																					
+
+			File deleteFile = new File("h://My Documents//LockedMeFolderExample//example5.txt"); // Path of file to be
+																									// deleted
+
 			System.out.println("File to be deleted: " + deleteFile.getName()); // Display file name to user
-			
-			if(deleteFile.delete()) {
+
+			if (deleteFile.delete()) {
 				try {
 					System.out.println("Deleting...");
 					Thread.sleep(5000);
@@ -123,7 +124,30 @@ public class ViewOptions {
 		}
 
 		if (userInput.equalsIgnoreCase("B3")) {
-			System.out.println("Searching for file...");
+			System.out.println("Enter file path to search: for example: C: or H:");
+			String folderPath = sc.next();
+
+			File folder = new File(folderPath);
+
+			if (folder.isDirectory()) {
+				File[] listOfFiles = folder.listFiles();
+				if (listOfFiles.length < 1) {
+					System.out.println("No file inside this folder ");
+				} else {
+					System.out.println("list of files and folder inside this path: ");
+					
+				}
+				for (File files : listOfFiles) {
+					if (!files.isDirectory()) {
+						System.out.println(files.getAbsoluteFile().toString());			
+					}
+				}
+				System.out.println();
+				allOptions();
+			} else {
+				System.out.println("No file in given directory: " + folderPath);
+				allOptions();
+			}
 		}
 
 		if (userInput.equalsIgnoreCase("B4")) {

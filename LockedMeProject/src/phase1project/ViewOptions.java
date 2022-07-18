@@ -38,6 +38,7 @@ public class ViewOptions extends Main {
 	}
 
 	void optionA() throws IOException {
+		System.out.println("NOTE: ALL FOLDERS WILL BE CREATED IN SAME DIRECTORY AS PROJECT \n");
 		System.out.println("If a folder does not exist, you will be prompted to create one.");
 		System.out.println("Enter existing folder or new folder to be created: \n ");
 		String folderName = sc.next();
@@ -65,7 +66,7 @@ public class ViewOptions extends Main {
 	}
 
 	void optionB() throws IOException {
-		System.out.println("B1. Add a file to existing folder: ");
+		System.out.println("B1. Add a file to existing folder ");
 		System.out.println("B2. Delete a File");
 		System.out.println("B3. Search for a File");
 		System.out.println("B4. Main Menu");
@@ -110,7 +111,7 @@ public class ViewOptions extends Main {
 				allOptions();
 			}
 
-			System.out.println("Correct Path? y or n ");
+			System.out.println("Correct Path? Y or N ");
 			String userChoice = sc.next();
 
 			if (userChoice.equalsIgnoreCase("Y")) {
@@ -138,7 +139,7 @@ public class ViewOptions extends Main {
 				allOptions();
 			}
 
-			System.out.println("Correct path? y or n ");
+			System.out.println("Correct path? Y or N ");
 			String userChoice = sc.next();
 
 			if (userChoice.equalsIgnoreCase("Y")) {

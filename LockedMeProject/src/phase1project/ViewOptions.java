@@ -40,7 +40,7 @@ public class ViewOptions extends Main {
 	void optionA() throws IOException {
 		System.out.println("NOTE: ALL FOLDERS WILL BE CREATED IN SAME DIRECTORY AS PROJECT \n");
 		System.out.println("If a folder does not exist, you will be prompted to create one.");
-		System.out.println("Enter existing folder or new folder to be created: \n ");
+		System.out.println("Enter existing folder or new folder to be created: (check project directory if you are not sure) \n ");
 		String folderName = sc.next();
 		File folder = new File(folderName);
 
@@ -77,7 +77,7 @@ public class ViewOptions extends Main {
 			System.out.println("Enter file name: ");
 			String fileName = sc.next();
 
-			System.out.println("Enter folder path: ");
+			System.out.println("Enter folder path: (example: c://users://documents...");
 			String userFilePath = sc.next();
 
 			File userFile = new File(userFilePath, fileName);
